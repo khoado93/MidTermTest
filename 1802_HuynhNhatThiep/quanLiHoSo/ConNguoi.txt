@@ -1,0 +1,58 @@
+package  quanLiHoSo;
+         public class  ConNguoi{
+  	 private  int id;
+ 	 private  String name;
+                  private  int age;
+                  private  int sex;
+	private  int cmnd;
+
+	public ConNguoi ( int id,String name,  int age,nt sex,int cmnd ){
+		this.id =  id ;
+		this.name = name ;
+		this. age = age;
+		this.sex = sex;
+		this.cmnd = cmnd;
+	}
+	pubic int getId (){
+		return id;
+	}
+	pubic void setId (int id){
+		this.id = id;
+	}
+
+	pubic int getName (){
+		return name;
+	}
+	pubic void setName (int name){
+		this.name = name;
+	}
+	
+	pubic int getAge (){
+		return age;
+	}
+	pubic void setAge(int age){
+		this.age = age ;
+	}
+
+	pubic int getSex (){
+		return sex;
+	}
+	pubic void setSex (int sex){
+		this.sex = sex;
+	}
+	
+	pubic int getCmnd(){
+		return cmnd;
+	}
+	pubic void setCmnd (int cmnd){
+		this.cmnd = cmnd;
+	}
+	public void xuat( ){
+	system.out.println("nhap id :   "+id);
+	system.out.println("nhap ten :   "+name);
+	system.out.println("nhap tuoi :   "+age);
+	system.out.println("nhap gioi tinh :   "+sex);
+	system.out.println("nhap  cmnd :   "+cmnd);
+
+	}
+}

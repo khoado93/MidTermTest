@@ -1,0 +1,8 @@
+public class main extends run{
+
+	public static void main(String[] args) {
+		run run = new run();
+		run.menu();
+	}
+
+}

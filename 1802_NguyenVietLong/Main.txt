@@ -1,0 +1,330 @@
+﻿package kiemTraNote;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+
+	public static ArrayList<BenhNhan> BenhNhan = new ArrayList<BenhNhan>();
+	public static ArrayList<BacSi> BacSi = new ArrayList<BacSi>();
+	public static Scanner so = new Scanner(System.in);
+	public static Scanner chu = new Scanner(System.in);
+
+	public static void main(String[] args){
+	  	System.out.println(Cac tinh nang:\n
+			Benh nhan\n
+			1/ Thêm m?i h? so b?nh nhân\n
+			2/ Hi?n th? thông tin t?t c? b?nh nhân\n
+			3/ Hi?n th? h? so c?a b?nh nhân v?i mã b?nh nhân nh?p t? bàn phím\n
+			4/ Tính t?ng các s? ti?n c?a t?t c? b?nh nhân\n
+			5/ Tìm b?nh nhân có ti?n tr? nhi?u nh?t\n
+			6/ TÌm các b?nh nhân có b?nh tuong ?ng nh?p t? bàn phím\n
+
+			NhanVien\n
+			7/ Thêm m?i nhân viên\n
+			8/ Hi?n th? t?t c? bác s?\n
+			9/ Hi?n th? bác s? v?i khoa tuong ?ng nh?p t? bàn phím\n
+			10/ S?a ph? c?p cho bác s? tuong ?ng v?i mã bác s? nh?p t? bàn phím\n
+			11/ Xóa bác s? v?i mã tuong ?ng
+		);
+
+	boolean xet = true;
+	do{
+	System.out.println("L?a ch?n c?a b?n [1-11]");
+	int luaChon = so.nextInt();
+	
+	Switch(luaChon){
+		case 1:
+		cau1();
+		break;
+
+		case 2:
+		cau2();
+		break;
+
+		case 3:
+		cau3();
+		break;
+
+		case 4:
+		cau4();
+		break;
+
+		case 5:
+		cau5();
+		break;
+
+		case 6:
+		cau6();
+		break;
+
+		case 7:
+		cau7();
+		break;
+
+		case 8:
+		cau8();
+		break;
+
+		case 9:
+		cau9();
+		break;
+
+		case 10:
+		cau10();
+		break;
+
+		case 11:
+		cau11();
+		break;
+		
+		default:
+		System.out.println("T?m bi?t nhé d?ng ?y!");
+		xet = false;
+		break;
+	}//do
+	}while(luaChon);
+	}//main
+
+	public static void cau1(){
+		BenhNhan BN = new BenhNhan();
+		System.out.println("Nh?p tên ");
+		BN.setTen(chu.nextLine());	
+	
+		System.out.println("Nh?p tu?i ");
+		BN.setTuoi(chu.nextInt());
+		
+		System.out.println("Nh?p gi?i tính ");
+		BN.setGioiTinh(chu.nextLine());
+		
+		System.out.println("Nh?p cmnd ");
+		BN.setCmnd(chu.nextInt());
+
+		System.out.println("Nh?p ma ");	
+		BN.setMa(chu.nextInt());
+
+		System.out.println("Nh?p b?nh ");
+		BN.setBenh(chu.nextLine());
+		
+		System.out.println("Nh?p phuong pháp di?u tr? ");
+		BN.setPhuongPhapDieuTri(chu.nextLine());
+		
+		System.out.println("Nh?p ngày nh?p vi?n ");
+		BN.setNgayNhapVien(chu.nextLine());
+		
+		System.out.println("Nh?p ngày ra vi?n ");
+		BN.setNgayRaVien(chu.nextLine());
+		
+		System.out.println("Nh?p ti?n thanh toán ");
+		BN.setTienThanhToan(chu.nextInt());
+	
+		BenhNhan.add(BN);
+	}
+
+	public static void cau2(){
+		if(BenhNhan.size() == 0){
+			System.out.println("Danh sách tr?ng");
+		} else {
+			for(BenhNhan benhNhan : BenhNhan){
+			benhNhan.xuat();
+			}
+		}
+	}
+
+
+	public static void cau3(){
+		if(BenhNhan.size() == 0){
+			System.out.println("Danh sách tr?ng");
+		} else {
+			boolean maTonTai = false;
+			System.out.println("Nh?p mã b?n mu?n tìm");
+			int maCanTim = so.nextInt();
+			for(i = 0;i < BenhNhan.size();i++){
+				if(maCanTim == BenhNhan.get(i).getMa()){
+					BenhNhan.get(i).xuat();
+					maTonTai = true;
+				}
+			}
+			if(maTonTai == false){
+				System.out.println("Không tìm th?y b?nh nhân v?i mã " + maCanTim);
+			}
+		}
+	}
+
+	public static void cau4() {
+		if (BenhNhan.size() == 0) {
+			System.out.println("Danh sách trống");
+		} else {
+			int sum = 0;
+			for (BenhNhan a : BenhNhan) {
+				sum = sum + a.getTienThanhToan();
+			}
+			System.out.println("Tổng tiền là : " + sum); 
+		}
+	}
+
+
+	public static void cau5(){
+		int big = 0;
+		for(i = 0;i < BenhNhan.size() ; i++){
+			if(BenhNhan.get(i).getTienThanhToan() > big){
+				big = BenhNhan.get(i).getTienThanhToan() ;
+			}
+			if(BenhNhan.get(i).getTienThanhToan() == big){
+				BenhNhan.get(i).xuat();
+			}
+		}
+
+	
+	}
+
+	public static void cau6() {
+		if (BenhNhan.size() == 0) {
+			System.out.println("Danh sách trống");
+		} else {
+			System.out.println("Nhập bệnh cần tìm");
+			String benhCanTim = chu.nextLine();
+			
+			for (int i = 0; i < BenhNhan.size(); i++) {
+				if (benhCanTim.equals(BenhNhan.get(i).getBenh())) {
+					BenhNhan.get(i).xuat();
+				}
+			}
+		}
+	}
+
+
+
+
+	
+
+	public static void cau7() {
+		BacSi BS = new BacSi();
+		System.out.println("Nhập tên : ");
+		BS.setTen(chu.nextLine());
+		System.out.println("Nhập tuổi : ");
+		BS.setTuoi(so.nextInt());
+		System.out.println("Nhập giới tính : ");
+		BS.setGioiTinh(chu.nextLine());
+		System.out.println("Nhập cmnd : ");
+		BS.setCmnd(so.nextInt());
+		System.out.println("Nhập mã : ");
+		BS.setMa(so.nextInt());
+		System.out.println("Nhập khoa : ");
+		BS.setKhoa(chu.nextLine());
+		System.out.println("Nhập ngày bắt đầu : ");
+		BS.setNgayBatDau(chu.nextLine());
+		System.out.println("Nhập luong : ");
+		BS.setLuong(so.nextInt());
+		System.out.println("Nhập phụ cấp : ");
+		BS.setPhuCap(so.nextInt());
+		BacSi.add(BS);
+	}
+
+
+
+
+	public static void cau8() {
+		if (BacSi.size() == 0) {
+			System.out.println("Danh sách trống");
+		} else {
+
+			for (int i = 0; i < BacSi.size(); i++) {
+				BacSi.get(i).xuat();
+			}
+		}
+	}
+
+
+
+	public static void cau9() {
+		if (BacSi.size() == 0) {
+			System.out.println("Danh sách trống");
+		} else {
+			System.out.println("Nhập khoa cần tìm");
+			String khoaCanTim = chu.nextLine();
+			
+			for (int i = 0; i < BacSi.size(); i++) {
+				if (khoaCanTim.equals(BacSi.get(i).getKhoa())) {
+					BacSi.get(i).xuat();
+				}
+			}
+		}
+	}
+
+	
+	public static void cau10() {
+		if (BacSi.size() == 0) {
+			System.out.println("Danh sách trống");
+		} else {
+			System.out.println("Nhập mã bác sỹ");
+			int maCanTim = so.nextInt();
+			
+			for (int i = 0; i < BacSi.size(); i++) {
+				if (maCanTim == BacSi.get(i).getMa()) {
+					BacSi.get(i).xuat();
+					System.out.println("Nhập phụ cấp cần thay đổi");
+					BacSi.get(i).setPhuCap(so.nextInt());
+				}
+			}
+		}
+	}
+
+	public static void cau11() {
+		if (BacSi.size() == 0) {
+			System.out.println("Danh sách trống");
+		} else {
+			System.out.println("Nhập mã bác sỹ cần xóa");
+			int maCanTim = so.nextInt();
+			
+			for (int i = 0; i < BacSi.size(); i++) {
+				if (maCanTim == BacSi.get(i).getMa()) {
+					BacSi.remove(i);
+					System.out.println("Đã xóa bác sỹ với mã số " + maCanTim);
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

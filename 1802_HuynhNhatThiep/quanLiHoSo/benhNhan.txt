@@ -1,0 +1,32 @@
+package quanLiHoSo;
+
+public class benhNhan extends{
+ 
+	private String maBN;
+	private String benh;
+	private String ppChua;
+	private  String ngayNhapVien;
+	private String ngayRaVien;
+	private double tongTien;
+	public benhNhan(int id,String name,  int age,nt sex,int cmnd ,String maNV,String khoa, String ppChua,
+				String ngayBatDauLam,double luong, double phuCap,double tongTien){
+		this.super( id, name, age, sex, cmnd);
+		this.maBN = maBN;
+		this.benh  = benh;
+		this.ppChua = ppChua;
+		this.ngayNhapVien = ngayNhapVien;
+		this.ngayRaVien = ngayRaVien;
+		this.tongTien = tongTien;
+	}
+ 	@Override
+	public void xuat(){
+		super.xuat();
+		system.out.println(" ma benh nhan  : "+maBN);
+		system.out.println("  ten benh  :"+ benh;
+		system.out.println(" phuong phap chua  : "+ppChua);
+		system.out.println(" ngay nhap vien  : "ngayNhapVien);
+		system.out.println(" ngay ra vien : "+ngayRaVien);
+		system.out.println(" tong tien : "+tongTien);
+
+	}
+}

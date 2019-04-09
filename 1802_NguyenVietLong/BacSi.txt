@@ -1,0 +1,63 @@
+﻿package kiemTraNote;
+public class BacSi extends ConNguoi{
+	private String khoa;
+	private String ngayBatDauVaoLam;
+	private int luong;
+	private int phuCap;
+
+	public BacSi(){
+		super();
+	}
+
+	public BenhNhan(String ten,int tuoi,String gioiTinh,int cmnd,int ma,String khoa,String ngayBatDauVaoLam,int luong, int phuCap){
+		super(ten,tuoi,gioiTinh,cmnd,ma);
+		this.khoa = khoa;
+		this.ngayBatDauVaoLam = ngayBatDauVaoLam;
+		this.luong; = luong;
+		this.phuCap = phuCap;
+	}
+
+	public String getKhoa(){
+		return khoa;
+	}
+
+	public void setKhoa(String khoa){
+		this.khoa = khoa;
+	}
+	
+	public String getNgayBatDauVaoLamh(){
+		return ngayBatDauVaoLam;
+	}
+
+	public void setNgayBatDauVaoLam(String ngayBatDauVaoLam){
+		this.ngayBatDauVaoLam = ngayBatDauVaoLam;
+	}
+	
+		public String getLuong(){
+		return luong;
+	}
+
+	public void setLuong(String luong){
+		this.luong = luong;
+	}
+	
+		public String getNgayRaVien(){
+		return ngayRaVien;
+	}
+
+	public void setPhuCap(String  phuCap){
+		this. phuCap=  phuCap;
+	}
+	
+
+	public void xuat() {
+		super.xuat();
+		System.out.println("Mã: " + getMa());
+		System.out.println("Khoa: " + getKhoa());
+		System.out.println("Ngày bắt đầu: " + getNgayBatDau());
+		System.out.println("Lương: " + getLuong());
+		System.out.println("Phụ cấp: " + getPhuCap());
+		System.out.println("----------------------------");
+		
+	}
+}

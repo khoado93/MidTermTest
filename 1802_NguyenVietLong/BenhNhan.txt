@@ -1,0 +1,76 @@
+﻿package kiemTraNote;
+public class BenhNhan extends ConNguoi{
+	private String benh;
+	private String phuongPhapChuaBenh;
+	private String ngayNhapVien;
+	private String ngayRaVien;
+	private int tienThanhToan;
+
+	public BenhNhan(){
+		super();
+	}
+
+	public BenhNhan(String ten,int tuoi,String gioiTinh,int cmnd,int ma,String benh,String phuongPhapChuaBenh,
+						String ngayNhapVien,String ngayRaVien, int tienThanhToan){
+		super(ten,tuoi,gioiTinh,cmnd,ma);
+		this.benh = benh;
+		this.phuongPhapChuaBenh = phuongPhapChuaBenh;
+		this.ngayNhapVien = ngayNhapVien;
+		this.ngayRaVien = ngayRaVien;
+		this.tienThanhToan = tienThanhToan;
+
+	}
+
+	public String getBenh(){
+		return benh;
+	}
+
+	public void setBenh(String benh){
+		this.benh = benh;
+	}
+	
+	public String getPhuongPhapChuaBenh(){
+		return phuongPhapChuaBenh;
+	}
+
+	public void setPhuongPhapChuaBenh(String phuongPhapChuaBenh){
+		this.phuongPhapChuaBenh = phuongPhapChuaBenh;
+	}
+	
+		public String getNgayNhapVien(){
+		return ngayNhapVien;
+	}  
+
+	public void setNgayNhapVien(String ngayNhapVien){
+		this.ngayNhapVien = ngayNhapVien;
+	}
+	
+		public String getNgayRaVien(){
+		return ngayRaVien;
+	}
+
+	public void setNgayRaVien(String gayRaVien){
+		this.gayRaVien = gayRaVien;
+	}
+	
+		public String getTienThanhToan(){
+		return tienThanhToan;
+	}
+
+	public void setTienThanhToan(String tienThanhToan){
+		this.tienThanhToan = tienThanhToan;
+	}
+	
+		
+
+	public void xuat() {  
+		super.xuat();
+		System.out.println("Mã b?nh nhân: " + getMa());
+		System.out.println("B?nh : " + getBenh());
+		System.out.println("Phuong pháp ch?a : " + getPhuongPhapChua());
+		System.out.println("Ngày nh?p vi?n: " + getNgayNhapVien());
+		System.out.println("Ngày ra vi?n: " + getNgayRaVien());
+		System.out.println("Ti?n thanh toán: " + getTienThanhToan());
+		System.out.println("----------------------------");
+	}
+}

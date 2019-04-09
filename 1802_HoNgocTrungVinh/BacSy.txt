@@ -1,0 +1,52 @@
+ 	public class BacSy() extends ConNguoi{
+		private String maBacSy;
+		private String khoa;
+		private date ngayVaoLam;
+		private double luong;
+		private double phuCap;
+	
+	public BacSy( String maBacSy, String khoa, date ngayVaoLam, double luong, double phuCap){
+		this.maBacSy= maBacSy;
+		this.khoa = khoa;
+		this.ngayVaoLam = ngayVaoLam;
+		this.luong = luong;
+		this.phuCap =  phuCap;
+	}
+	
+	public String getMaBacSy(){
+		return maBacSy;
+	}
+	public void String setMaBacSy( String maBacSy){
+		return this.maBacSy = maBacSy;
+	}
+
+	public String getKhoa(){
+		return khoa;
+	}
+	public void String setKhoa( String ten){
+		return this.ten = ten;
+	}
+
+	public date getNgayVaoLam(){
+		return ngayVaoLam;
+	}
+	public void date setNgayVaoLam( date ngayVaoLam){
+		return this.ngayVaoLam = ngayVaoLam;
+	}
+		
+	public double getLuong(){
+		return luong;
+	}
+	public void double  setLuong(double luong){
+		return this.luong = luong;
+	}
+
+	public double getPhuCap(){
+		return phuCap;
+	}
+	public void double setPhuCap(double phuCap){
+		return this.phuCap = phuCap;
+	}
+	
+
+	}

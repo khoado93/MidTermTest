@@ -1,0 +1,58 @@
+import java.sql.Date;
+
+public class BacSy extends ConNguoi{
+	private int maBacSy;
+	private String khoa;
+	private Date ngayVaoLam;
+	private double luong;
+	private double phuCap;
+
+	public int getMaBacSy() {
+		return maBacSy;
+	}
+	public void setMaBacSy(int maBacSy) {
+		this.maBacSy = maBacSy;
+	}
+	public String getKhoa() {
+		return khoa;
+	}
+	public void setKhoa(String khoa) {
+		this.khoa = khoa;
+	}
+	public Date getNgayVaoLam() {
+		return ngayVaoLam;
+	}
+	public void setNgayVaoLam(Date ngayVaoLam) {
+		this.ngayVaoLam = ngayVaoLam;
+	}
+	public double getLuong() {
+		return luong;
+	}
+	public void setLuong(double luong) {
+		this.luong = luong;
+	}
+	public double getPhuCap() {
+		return phuCap;
+	}
+	public void setPhuCap(double phuCap) {
+		this.phuCap = phuCap;
+	}
+	public Hotel(int maBacSy, String khoa, Date ngayVaoLam, double luong, double phuCap) {
+		super();
+		this.maBacSy = maBacSy;
+		this.khoa = khoa;
+		this.ngayVaoLam = ngayVaoLam;
+		this.luong = luong;
+		this.phuCap = phuCap;
+	}
+	
+	@overide
+	public void xuat() {
+		super.xuat();
+		System.out.println("id Bac Sy : " + maBacSy);
+		System.out.println("Khoa : " + khoa);
+		System.out.println("Ngay vao lam: " + ngayVaolam);
+		System.out.println("Luong : " + luong);
+		System.out.println("Tien phu cap : " + phuCap);
+	}
+}

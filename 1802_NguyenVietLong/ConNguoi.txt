@@ -1,0 +1,70 @@
+package kiemTraNote;
+public class ConNguoi{
+	private String ten;
+	private int tuoi;
+	private String gioiTinh;
+	private int cmnd;
+	private int ma;
+
+
+	public ConNguoi(){
+
+	}
+
+	public ConNguoi(String ten,int tuoi,String gioiTinh,int cmnd,int ma){
+		
+		this.ten = ten;
+		this.tuoi = tuoi;
+		this.gioiTinh = gioiTinh;
+		this.cmnd = cmnd;
+		this.ma = ma;
+
+	}
+
+	public String getTen(){
+		return ten;
+	}
+
+	public void setTen(String ten){
+		this.ten = ten;
+	}
+
+	public String getTuoi(){
+		return tuoi;
+	}
+
+	public void setTuoi(String tuoi;{
+		this.tuoi; = tuoi;
+	}
+
+	public String getGioiTinh(){
+		return gioiTinh;
+	}
+
+	public void setGioiTinh(String gioiTinh){
+		this.gioiTinh = gioiTinh;
+	}
+
+	public String getCmnd(){
+		return cmnd;
+	}
+
+	public void setCmnd(String cmnd){
+		this.cmnd = cmnd;
+	}
+	public String getMa(){
+		return ma;
+	}
+
+	public void setMa(String ma){
+		this.ma = ma;
+	}
+
+	public static void xuat(){
+	System.out.println("Ten : " + getTen());
+	System.out.println("Tuoi : " + getTuoi());
+	System.out.println("GioiTinh : " + getGioiTinh());
+	System.out.println("Cmnd : " + getCmnd());
+	System.out.println("Ma : " + getMa());
+	}
+}

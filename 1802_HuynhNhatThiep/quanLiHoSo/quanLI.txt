@@ -1,0 +1,208 @@
+package  quanLiHoSo;
+
+import java.uitl.Scanner;
+import java.uitl.ArrayList;
+public class QuanLi {
+ 	private ArrayList <ConNguoi> listConNguoi 
+	private Scanner sc;
+	
+	public void QuanLi (){
+	      	listConNguoi = new ArrayList <ConNguoi>();
+   		sc = new Scanner(system.in);
+	}
+	public void addConNguoi( ConNguoi conNguoi ){
+		listConNguoi.add(conNguoi);
+	}
+	// 2hi?n th? thông tin t?t c? b?nh nhân;
+	public void hienThiBenhNhan(){
+		for( BenhNhan benhNhan : listConNguoi.add){
+			benhNhan .xuat();	
+		}
+	}
+	// 2hi?n th? thông tin t?t c? b?nh nhân;
+	   public void hienThiNV(){
+		for( NhanVien nhanVien : listConNguoi.add){
+			nhanVien .xuat();	
+		}
+	}
+
+	//3 hi?n th? thông tin b?nh nhân nh?p t? vào bàn phím 
+	public void hienThiThongTinBNKeys( int id){
+		system.out.println(" nh?p id xu?t thông tin :")
+		 id = sc.nextLine();
+		for( BenhNhan benhNhan  : listConNguoi ){
+		    	if( benhNhan.getId().equals(id)) {
+				benhNhan.xuat();
+			}
+		} 
+	}
+	// 4. Tính t?ng các s? ti?n c?a t?t c? b?nh nhân
+
+	public void allTongTien(){
+		double sum =0;
+		for ( ConNguoi conNguoi : listConNguoi  ){
+		 sum +=  listConNguoi.getTongTien() ;	
+			sum.xuat();
+		}
+	}
+	/// 5/Tìm b?nh nhân có ti?n tr? nhi?u nh?t
+	public void maxTienBN(){
+		
+	}
+	//6 Ìm các b?nh nhân có b?nh tuong ?ng nh?p t? bàn phím
+	public void hienThiThongTinBenhTrung( String Benh){
+		system.out.println(" nh?p tên b?nh :")
+		 benh = sc.nextLine();
+		for( ConNguoi  conNguoi  : listConNguoi ){
+		    	if (conNguoi  .getBenh() == benh) {
+				conNguoi.xuat();
+			}
+		} 
+	}
+	11/ Xóa bác s? v?i mã tuong ?ng
+	public void delete ( int id){
+		system.out.println(" nhap id can xoa :")
+		 id = sc.nextLine();
+		for( ConNguoi  conNguoi  : listConNguoi ){
+		    	if (conNguoi.getId().equals(id)) {
+				conNguoi.remove(conNguoi );
+				conNguoi.xuat();
+			}
+		} 
+	}
+	//10/ S?a ph? c?p cho bác s? tuong ?ng v?i mã bác s? nh?p t? bàn phím
+	
+	public void suaNV(){
+		System.out.println ("nhap ma nv");
+		string maNV = Integer.parsenlnt(sc.nextLine());
+		int position = findMaNV(maNV );
+		if ( position ==-1){
+		System.out.println ("ma nv khon tim thay");
+		}
+		else{
+			System.out.println ("nhap lai phu cap ");
+			maNV.setPhuCap(sc.nextDouble());
+			}
+
+	}
+	
+	public ConNguoi nhapConNguoi(){
+		ConNguoi conNguoi = null;
+	
+		System.out.print("Chon 1 nhap bac Sy| 2 nhap benh nhan: ");
+		int chooseInput = Integer.parseInt(sc.nextLine());
+		switch (chooseInput) {
+			case 1:
+			 	system.out.println(" nhap id :");	
+				 int id = integer.parsenln(sc.nextLine());
+				system.out.println(" nhap ten :");	
+				 String  name = sc.nextLine();
+				system.out.println(" nhap tuoi:");	
+				 int age= integer.parsenln(sc.nextLine());
+				system.out.println(" nhap gioi tinh:");	
+				String   gioiTinh = sc.nextLine();
+				system.out.println(" nhap CMND:");	
+
+				 int cmnd = integer.parsenln(sc.nextLine());
+				system.out.println(" nhap khoa:");	
+				String   khoa = sc.nextLine();
+				system.out.println(" nhap ngay vao lam:");	
+				String   ngayBatDauLam = sc.nextLine();
+				system.out.println(" luong:");	
+				double luong =  double.parsentln(sc.nextLine());
+				system.out.println(" phu cap:");	
+				double phuCap=  double.parsentln(sc.nextLine());
+				conNguoi = new NhanVien(id ,name ,age,gioiTinh ,cmnd ,khoa ,ngayBatDauLam ,luong ,phuCap);
+				break;
+			case 2:
+			 	system.out.println(" nhap id :");	
+				 int id = integer.parsenln(sc.nextLine());
+				system.out.println(" nhap ten :");	
+				 String  name = sc.nextLine();
+				system.out.println(" nhap tuoi:");	
+				 int age= integer.parsenln(sc.nextLine());
+				system.out.println(" nhap gioi tinh:");	
+				String   gioiTinh = sc.nextLine();
+				system.out.println(" nhap CMND:");	
+
+				 int cmnd = integer.parsenln(sc.nextLine());
+				system.out.println(" nhap benh:");	
+				String   benh= sc.nextLine();
+				system.out.println(" phuong phap chuwa:");	
+				String   ppChua = sc.nextLine();
+				system.out.println(" ngay nhap vien:");	
+				String ngayNhapVien =  sc.nextLine();
+				system.out.println(" ngay ra vien:");	
+				String ngayRaVien =  sc.nextLine();
+				system.out.println("tong tien");	
+				double tongTien = double.parsentln(sc.nextLine());
+				conNguoi = new benhNhan(id ,name ,age,gioiTinh ,cmnd ,benh ,ngayNhapVien ,ngayRaVien ,tongTien );
+				break;
+
+			}
+			return conNguoi;
+	}
+	public void menu() {
+		int chooseMenu;
+		while (true) {
+			System.out.println("1. nh?p danh sách ");
+			System.out.println("2. hi?n th? danh sách");
+			System.out.println("3. xuat benh nhan nhap tu ban phim
+			System.out.println("4.Tính t?ng các s? ti?n c?a t?t c? b?nh nhân ");
+			System.out.println("5. Tìm b?nh nhân có ti?n tr? nhi?u nh?t");
+			System.out.println("6.  TÌm các b?nh nhân có b?nh tuong ?ng nh?p t? bàn phím");
+			System.out.println("7.  Thêm m?i nhân viên");	
+			System.out.println("8.  Hi?n th? t?t c? bác s?");
+			System.out.println("9.  Hi?n th? bác s? v?i khoa tuong ?ng nh?p t? bàn phím);
+			System.out.println("10.   S?a ph? c?p cho bác s? tuong ?ng v?i mã bác s? nh?p t? bàn phím");
+			System.out.println("11. Xóa bác s? v?i mã tuong ?ng");
+
+			chooseMenu = Integer.parseInt(sc.nextLine());
+			switch (chooseMenu) {
+				case 1:
+					ConNguoi conNguoi = nhapNhanVien();
+					listConNguoi.add(conNguoi);
+					break;
+				case 2:
+					hienThiBenhNhan();
+					break;
+				case 3:
+					hienThiNV()
+					break;
+				case 4:
+					 hienThiThongTinBNKeys();
+					break;
+				case 5:
+					allTongTien();
+					break;
+				case 6:
+					maxTienBN();
+					break;
+				case 7:
+					 hienThiThongTinBenhTrung();					
+					break;
+
+				case 8:
+					 delete();
+					break;
+
+				case 9:
+					suaNV();
+					break;
+				case 5:
+					System.out.println("tam biet");
+					System.exit(0);
+					break;
+				default:
+					System.out.println("khong ton tai tinh nang nay");
+					break;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		QuanLi quanLi = new QuanLi ();
+		quanLi .menu();
+	}
+}
+

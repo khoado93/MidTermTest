@@ -1,0 +1,248 @@
+package BaiKiemTra;
+import java.util.Scanner;
+import java.util.ArrayList;
+public class QuanLiBenhVien {
+	public static ArrayList<BenhNhan> listBenhNhan = new ArrayList<BenhNhan>();
+	public static ArrayList<BacSi> listBacSi = new ArrayList<BacSi>();
+	public static Scanner sc1 = new Scanner(System.in);
+	public static Scanner sc2 = new Scanner(System.in);
+	public static void main(String[] args) {
+		boolean lap = true;
+		do {
+			System.out.pritnln("B?nh nhân");
+			System.out.pritnln("1/ Thêm m?i h? so b?nh nhân");
+			System.out.pritnln("2/ Hi?n th? thông tin t?t c? b?nh nhân");
+			System.out.pritnln("3/ Hi?n th? h? so c?a b?nh nhân v?i mã b?nh nhân nh?p t? bàn phím");
+			System.out.pritnln("4/ Tính t?ng các s? ti?n c?a t?t c? b?nh nhân");
+			System.out.pritnln("5/ Tìm b?nh nhân có ti?n tr? nhi?u nh?t");
+			System.out.pritnln("6/ TÌm các b?nh nhân có b?nh tuong ?ng nh?p t? bàn phím");
+			System.out.pritnln("Nhân viên");
+			System.out.pritnln("7/ Thêm m?i nhân viên");
+			System.out.pritnln("8/ Hi?n th? t?t c? bác s?");
+			System.out.pritnln("9/ Hi?n th? bác s? v?i khoa tuong ?ng nh?p t? bàn phím");
+			System.out.pritnln("10/ S?a ph? c?p cho bác s? tuong ?ng v?i mã bác s? nh?p t? bàn phím");
+			System.out.pritnln("11/ Xóa bác s? v?i mã tuong ?ng");
+			System.out.println("Ch?n tính nang");
+			int soNhap = sc2.nextInt();
+			switch (soNhap) {
+				case 1 : 
+					themBenhNhan(); break;
+ 				case 2 : 
+					hienThiTatCaBenhNhan(); break;
+ 				case 3 : 
+					hienThiBenhNhan(); break;
+ 				case 4 : 
+					tinhTongTienThanhToan(); break;
+ 				case 5 : 
+					timBenhNhanTienThanhToanCaoNhat(); break;
+ 				case 6 : 
+					timBenhNhanTheoBenh(); break;
+ 				case 7 : 
+					themBacSi(); break;
+ 				case 8 : 
+					hienThiTatCaBacSi(); break;
+ 				case 9 : 
+					hienThiBacSi(); break;
+ 				case 10 : 
+					suaPhuCap(); break;
+ 				case 11 : 
+					xoaBacSiTheoMa(); break;
+				default : System.out.println("Không có trong thao tác");
+			}
+		} while (lap);
+	}
+
+	// Câu 1: 
+	public static void themBenhNhan() {
+		BenhNhan bn = new BenhNhan();
+		System.out.println("Nh?p tên : ");
+		bn.setTen(sc1.nextLine());
+		System.out.println("Nh?p tu?i b?nh nhân : ");
+		bn.setTuoi(sc2.nextInt());
+		System.out.println("Nh?p gi?i tính : ");
+		bn.setgioiTinh(sc1.nextLine());
+		System.out.println("Nh?p cmnd : ");
+		bn.setCmnd(sc2.nextInt());
+		System.out.println("Nh?p mã b?nh nhân : ");
+		bn.setMaBenhNhan(sc1.nextLine());
+		System.out.println("Nh?p b?nh : ");
+		bn.setBenh(sc1.nextLine());
+		System.out.println("Nh?p phuong pháp ch?a b?nh : ");
+		bn.setPhuongPhapChuaBenh(sc1.nextLine());
+		System.out.println("Nh?p ngày nh?p vi?n : ");
+		bn.setNgayNhapVien(sc1.nextLine());
+		System.out.println("Nh?p ngày ra vi?n : ");
+		bn.setNgayRaVien(sc1.nextLine());
+		System.out.println("Nh?p ti?n thanh toán : ");
+		bn.setTienThanhToan(sc2.nextDouble());
+		listBenhNhan.add(bn);
+	}
+
+	// Câu 2: 
+	public static void hienThiTatCaBenhNhan() {
+		if (listBenhNhan.size() != 0) {
+			for (BenhNhan a : listBenhNhan) {
+				a.xuat();
+			}
+		} else {
+			System.out.println("Danh sách b?nh nhân tr?ng");
+		}
+	}
+
+	// Câu 3:
+	public static void hienThiBenhNhan() {
+		if (listBenhNhan.size() != 0) {
+			System.out.println("Nh?p mã b?nh nhân c?n tìm");
+			String nhapMa = sc1.nextLine();
+			for (int i = 0; i < listBenhNhan.size(); i++) {
+				if (listBenhNhan.get(i).getMaBenhNhan().equals(nhapMa)) {
+					listBenhNhan.get(i).xuat();
+				} else {
+					System.out.println("Không tìm ra mã b?nh nhân");
+				}
+			}
+			
+		} else {
+			System.out.println("Danh sách b?nh nhân tr?ng");
+		}
+	}
+
+	// Câu 4:
+	public static void tinhTongTienThanhToan() {
+		double sum = 0;
+		if (listBenhNhan.size() != 0) {
+			for (BenhNhan a : listBenhNhan) {
+					sum = sum + a.getTienThanhToan();
+			}
+			System.out.println("T?ng ti?n thanh toán c?a t?t c? b?nh nhân là : " + sum);
+		} else {
+			System.out.println("Danh sách b?nh nhân tr?ng");
+		}
+	}
+
+	// Câu 5:
+	public static void timBenhNhanTienThanhToanCaoNhat() {
+		if (listBenhNhan.size() != 0) {
+			double max = listBenhNhan.get(0).getTienThanhToan();
+			for (int i = 1; i < listBenhNhan.size(); i++) {
+				if (listBenhNhan.get(i).getTienThanhToan() > max) {
+					max = listBenhNhan.get(i).getTienThanhToan();
+				}
+			}
+			for (int j = 0; j < listBenhNhan.size(); j++) {
+				if (listBenhNhan.get(j).getTienThanhToan() == max) {
+					listBenhNhan.get(j).xuat();
+				}
+			}
+		} else {
+			System.out.println("Danh sách b?nh nhân tr?ng");
+		}
+	}
+
+	// Câu 6:
+	public static void timBenhNhanTheoBenh() {
+		if (listBenhNhan.size() != 0) {
+			System.out.println("Nh?p b?nh c?a b?nh nhân c?n tìm");
+			String nhapBenh = sc1.nextLine();
+			for (int i = 0; i < listBenhNhan.size(); i++) {
+				if (listBenhNhan.get(i).getMaBenhNhan().equals(nhapBenh)) {
+					listBenhNhan.get(i).xuat();
+				} else {
+					System.out.println("Không tìm ra b?nh c?a b?nh nhân c?n tìm");
+				}
+			}
+			
+		} else {
+			System.out.println("Danh sách b?nh nhân tr?ng");
+		}
+	}
+
+	// Câu 7:
+	public static void themBacSi() {
+		BacSi bs = new BacSi();
+		System.out.println("Nh?p tên bác si: ");
+		bs.setTen(sc1.nextLine());
+		System.out.println("Nh?p tu?i bác si : ");
+		bs.setTuoi(sc2.nextInt());
+		System.out.println("Nh?p gi?i tính : ");
+		bs.setGioiTinh(sc1.nextLine());
+		System.out.println("Nh?p cmnd : ");
+		bs.setCmnd(sc2.nextInt());
+		System.out.println("Nh?p mã bác si : ");
+		bs.setMaBacSi(sc1.nextLine());
+		System.out.println("Nh?p khoa bác si làm vi?c : ");
+		bs.setKhoa(sc1.nextLine());
+		System.out.println("Nh?p ngày vào làm : ");
+		bs.setNgayBatDauVaoLam(sc1.nextLine());
+		System.out.println("Nh?p luong co b?n : ");
+		bs.setLuong(sc2.nextDouble());
+		System.out.println("Nh?p ph? c?p : ");
+		bs.setPhuCap(sc2.nextDouble());
+		listBacSi.add(bs);
+	}
+	
+	// Câu 8:
+	public static void hienThiTatCaBacSi() {
+		if (listBacSi.size() != 0) {
+			for (BacSi b : listBacSi) {
+				b.xuat();
+			}
+		} else {
+			System.out.println("Danh sách bác si tr?ng");
+		}
+	}
+	
+	// Câu 9:
+	public static void hienThiBacSi() {
+		if (listBacSi.size() != 0) {
+			System.out.println("Nh?p khoa c?a bác si c?n tìm");
+			String nhapKhoa = sc1.nextLine();
+			for (int i = 0; i < listBacSi.size(); i++) {
+				if (listBacSi.get(i).getMaBacSi().equals(nhapKhoa)) {
+					listBacSi.get(i).xuat();
+				} else {
+					System.out.println("Không tìm ra khoa c?a bác si c?n tìm");
+				}
+			}
+			
+		} else {
+			System.out.println("Danh sách bác si tr?ng");
+		}
+	}
+
+	// Câu 10:
+	public static void suaPhuCap() {
+		if (listBacSi.size() != 0) {
+			System.out.println("Nh?p mã bác si c?n tìm");
+			String nhapMa = sc1.nextLine();
+			for (int i = 0; i < listBacSi.size(); i++) {
+				if (listBacSi.get(i).getMaBacSi().equals(nhapMa)) {
+					listBacSi.get(i).getPhuCap(sc2.nextLine());
+				} else {
+					System.out.println("Không tìm ra mã bác si");
+				}
+			}
+			
+		} else {
+			System.out.println("Danh sách bác si tr?ng");
+		}
+	}
+
+	// Câu 11:
+	public static void xoaBacSiTheoMa() {
+		if (listBacSi.size() != 0) {
+			System.out.println("Nh?p mã bác si c?n tìm");
+			String nhapMa = sc1.nextLine();
+			for (int i = 0; i < listBacSi.size(); i++) {
+				if (listBacSi.get(i).getMaBacSi().equals(nhapMa)) {
+					listBacSi.remove(i);
+				} else {
+					System.out.println("Không tìm ra mã bác si");
+				}
+			}
+			
+		} else {
+			System.out.println("Danh sách bác si tr?ng");
+		}
+	}
+}

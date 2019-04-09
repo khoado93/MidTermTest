@@ -1,0 +1,275 @@
+import java.util.Scanner;
+import java.util.Arraylist;
+
+public class QuanLyHoSo() {
+	Arraylist<BenhNhan> benhNhans;
+	Arraylist<BacSy> basSys;
+	Scanner sc;
+
+ 	public QuanLyHoSo() {
+		benhNhans = new ArrayList<BenhNhan>();
+		basSys = new ArrayList<BacSy>();
+		sc = new Scanner(system.in);
+	}
+	//          BENH NHAN 
+	// 1. Thêm m?i h? so b?nh nhân
+	public void addHoSoBenhNhan(BenhNhan benhNhan) {
+		benhNhans.add(benhNhan);
+	}
+
+	// 2. Hi?n th? thông tin t?t c? b?nh nhân
+	public void hienThiThongTinBenhNhan() {
+		for( BenhNhan benhNhan : benhNhans ) {
+			benhNhan.xuat();
+		}
+	}
+
+	// 3. Hi?n th? h? so c?a b?nh nhân v?i mã b?nh nhân nh?p t? bàn phím
+	public void hienThiBenhNhanTheoMa(int maBenhNhan) {
+		System.out.print("nhap ma benh nhan : ");
+		maBenhNhan = Integer.parseInt(sc.nextLine());
+		for( BenhNhan benhNhan : benhNhans ) {
+			if ( benhNhan.getMaBenhNhan() ==  maBenhNhan ) {
+				benhNhan.xuat();
+			}
+		}
+	}
+	
+	// 4. Tính t?ng các s? ti?n c?a t?t c? b?nh nhân
+	public void tongTienThanhToan() {
+		double sum = 0;
+		for( BenhNhan benhNhan : benhNhans ) {
+			sum += benhNhan.getTienThanhToan();
+		}
+		System.out.println("Tong tien thanh toan la " + sum);
+	}
+
+	// 5. Tìm b?nh nhân có ti?n tr? nhi?u nh?t
+	public void benhNhanCoTienTraNhieuNhat() {
+		Collections.sort(benhNhans, new Comparator<BenhNhan>() {
+			@Override
+			public int compare( BenhNhan bn1 , BenhNhan bn2 ) {
+				if(bn1.getTienThanhToan() < bn2.getTienThanhToan()) {
+					return 1;	
+				} else {
+					if(bn1.getTienThanhToan() == bn2.getTienThanhToan()) {
+						return 0;
+					} else {
+						return -1;
+					  }	
+				  }
+			}
+		});
+		System.out.print("Benh nhan co tien tra cao nhat la : ");
+		benhNhans.get(benhNhans.size() - 1).xuat();
+	}
+
+	// 6. TÌm các b?nh nhân có b?nh tuong ?ng nh?p t? bàn phím
+	public void hienThiBenhTheoMa(String benh) {
+		System.out.print("nhap ma benh : ");
+		benh = sc.nextLine();
+		for( BenhNhan benhNhan : benhNhans ) {
+			if ( benhNhan.getMaBenh() ==  benh ) {
+				benhNhan.xuat();
+			}
+		}
+	}
+
+	//          NHAN VIEN 
+	// 7. Thêm m?i nhân viên
+	public void addHoSoBacSy(BacSy bacSy) {
+		bacSys.add(bacSy);
+	}
+
+	// 8. Hi?n th? t?t c? bác s?
+	public void hienThiThongTinBacSy() {
+		for( BacSy bacSy : bacSys ) {
+			bacSy.xuat();
+		}
+	}
+	
+	// 9. Hi?n th? bác s? v?i khoa tuong ?ng nh?p t? bàn phím
+	public void hienThiBacSyTheoKhoa(String khoa) {
+		System.out.print("nhap khoa cua bac sy : ");
+		khoa = sc.nextLine();
+		for( BacSy bacSy : bacSys ) {
+			if ( bacSy.getKhoa() ==  khoa ) {
+				bacSy.xuat();
+			}
+		}
+	}
+
+	// 10. S?a ph? c?p cho bác s? tuong ?ng v?i mã bác s? nh?p t? bàn phím
+	public void SuaPhuCapBacSy() {
+		System.out.print("Nhap ma bac sy");
+		maBacSy = Integer.parseInt(sc.nextLine());
+		int position = findMaBacSy(maBacSy);
+		if (position == -1) {
+			System.out.println("Ma bac sy ko tim thay !!!");
+		} else {
+			System.out.print("Nhap lai phu cap");
+			bacSy.setPhuCap(sc.nextDouble());
+		}
+	}
+
+	// 11. Xóa bác s? v?i mã tuong ?ng
+	public void xoaBacSyTheoMa() {
+		System.out.print("Nhap ma bac sy");
+		maBacSy = Integer.parseInt(sc.nextLine());
+		int position = findMaBacSy(maBacSy);
+		if (position == -1) {
+			System.out.println("Ma bac sy ko tim thay !!!");
+		} else {
+			bacSys.remove(position);
+		}
+	}
+
+	public int findMaBacSy(int maBacSy{
+		for ( BacSy bacSy : bacSys ) {
+			if (bacSy.getMaBacSy() == maBacSy) {
+				return bacSy;
+			}
+		}
+		return -1;
+	}
+	
+	// Nhap thong tin 
+	public ConNguoi nhapThongTin() {
+		ConNguoi conNguoi = null;
+		String name;
+		int age;
+		String sex;
+		int cmnd;
+		System.out.print("Chon 1 nhap Benh nhan | 2 nhap bac sy : ");
+		int chooseInput = Integer.parseInt(sc.nextLine());
+		switch (chooseInput) {
+		case 1:
+			System.out.print("nhap ten : ");
+			name = sc.nextLine();
+			System.out.print("Nhap tuoi : ");
+			age = Integer.parseInt(sc.nextLine());
+			System.out.print("nhap gioi tinh: ");
+			sex = sc.nextLine();
+			System.out.print("Nhap CMND : ");
+			cmnd = Integer.parseInt(sc.nextLine());
+			System.out.print("nhap ma Benh Nhan : ");
+			int maBenhNhan = Integer.parseInt(sc.nextLine());
+			System.out.print("nhap benh : ");
+			String benh = sc.nextLine();
+			System.out.print("nhap phuong phap chua chua benh : ");
+			String phuongPhapChuaBenh = sc.nextLine();
+			System.out.print("Ngay nhap vien : ");
+			String ngayNhapVien = sc.nextLine();
+			System.out.print("Ngay ra vien : ");
+			String ngayRaVien = sc.nextLine();
+			System.out.print("Ngay ra vien : ");
+			String ngayRaVien = sc.nextLine();
+			System.out.print("Tien thanh toan : ");
+			double tienThanhToan = Double.parseDouble(sc.nextLine());			
+			conNguoi = new BenhNhan(name , age, sex, cmnd, maBenhNhan, benh, phuongPhapChuaBenh, ngayNhapVien, ngayRaVien, tienThanhToan);
+			break;
+		case 2:
+			System.out.print("nhap ten : ");
+			name = sc.nextLine();
+			System.out.print("Nhap tuoi : ");
+			age = Integer.parseInt(sc.nextLine());
+			System.out.print("nhap gioi tinh: ");
+			sex = sc.nextLine();
+			System.out.print("Nhap CMND : ");
+			cmnd = Integer.parseInt(sc.nextLine());
+			System.out.print("nhap ma Bac Sy : ");
+			int maBacSy = Integer.parseInt(sc.nextLine());
+			System.out.print("nhap khoa : ");
+			String khoa = sc.nextLine();
+			System.out.print("Ngay vao lam : ");
+			String ngayVaoLam = sc.nextLine();
+			System.out.print("Luong : ");
+			double luong = Double.parseDouble(sc.nextLine());
+			System.out.print("Tien phu cap : ");
+			double phuCap = Double.parseDouble(sc.nextLine());				
+			conNguoi = new BacSy(name , age, sex, cmnd, maBacSy, khoa, ngayVaoLam, luong, phuCap);
+			break;
+		}
+		return conNguoi;
+	}
+		
+	public void menu() {
+		int chooseMenu;
+		while (true) {
+			System.out.println("1. Thêm m?i h? so b?nh nhân");
+			System.out.println("2. Hi?n th? thông tin t?t c? b?nh nhân");
+			System.out.println("3. Hi?n th? h? so c?a b?nh nhân v?i mã b?nh nhân nh?p t? bàn phím ");
+			System.out.println("4. Tính t?ng các s? ti?n c?a t?t c? b?nh nhân");
+			System.out.println("5. Tìm b?nh nhân có ti?n tr? nhi?u nh?t");
+			System.out.println("6. TÌm các b?nh nhân có b?nh tuong ?ng nh?p t? bàn phím ");
+			System.out.println("7. Thêm m?i nhân viên");
+			System.out.println("8. Hi?n th? t?t c? bác s?");
+			System.out.println("9. Hi?n th? bác s? v?i khoa tuong ?ng nh?p t? bàn phím");
+			System.out.println("10. S?a ph? c?p cho bác s? tuong ?ng v?i mã bác s? nh?p t? bàn phím");
+			System.out.println("11. Xóa bác s? v?i mã tuong ?ng ");
+			System.out.println("moi lua chon");
+			chooseMenu = Integer.parseInt(sc.nextLine());
+			switch (chooseMenu) {
+				case 1:
+					ConNguoi conNguoi = nhapThongTin();
+					addHoSoBenhNhan(benhNhan);
+					break;
+				case 2:
+					hienThiThongTinBenhNhan();
+					break;
+				case 3:
+					hienThiBenhNhanTheoMa(maBenhNhan);
+					break;
+				case 4:
+					tongTienThanhToan();
+					break;
+				case 5:
+					benhNhanCoTienTraNhieuNhat();
+					break;
+				case 6:
+					hienThiBenhTheoMa(benh);
+					break;
+				case 7:
+					ConNguoi conNguoi = nhapThongTin();
+					addHoSoBacSy(bacSy);				
+					break;
+				case 8:
+					hienThiThongTinBacSy();
+					break;
+				case 9:
+					hienThiBacSyTheoKhoa(khoa);
+					break;
+				case 10:
+					SuaPhuCapBacSy(maBacSy);
+					break;
+				case 11:
+					xoaBacSyTheoMa(maBacSy);
+					break;
+				case 12:
+					System.out.println("tam biet");
+					System.exit(0);
+					break;
+				default:
+					System.out.println("khong ton tai tinh nang nay");
+					break;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		QuanLyHoSo quanLyHoSo = new QuanLyHoSo();
+		quanLyHoSo.menu();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

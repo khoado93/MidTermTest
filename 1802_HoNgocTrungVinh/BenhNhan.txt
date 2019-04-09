@@ -1,0 +1,59 @@
+public class BenhNhan() extends ConNguoi(){
+		private String maBenhNhan;
+		private String benh;
+		private String phuongPhapChuaBenh;
+		private date ngayNhapVien;
+		private date ngayRaVien;
+		private double tienThanhToan;
+	
+	public BenhNhan(String maBenhNhan,String benh,String phuongPhapChuaBenh,date ngayNhapVien,date ngayRaVien,double tienThanhToan){
+		this.maBenhNhan = maBenhNhan;
+		this.benh = benh;
+		this.phuongPhapChuaBenh = phuongPhapChuaBenh;		
+		this.ngayNhapVien =  ngayNhapVien;
+		this.ngayRaVien = ngayRaVien;
+		this.tienThanhToan = tienThanhToan;
+	}
+	
+	public String getMaBenhNhan(){
+		return maBenhNhan;
+	}
+	public void String setMaBenhNhan( String maBenhNhan){
+		return this.maBenhNhan = maBenhNhan;
+	}
+
+	public String getBenh(){
+		return benh;
+	}
+	public void String setBenh( String benh){
+		return this.benh = benh;
+	}
+
+	public String getPhuongPhapChuaBenh(){
+		return phuongPhapChuaBenh;
+	}
+	public void String setPhuongPhapChuaBenh( String phuongPhapChuaBenh){
+		return this.phuongPhapChuaBenh = phuongPhapChuaBenh;
+	}
+
+	public String getNgayNhapVien(){
+		return ngayNhapVien;
+	}
+	public void date setNgayNhapVien( date ngayNhapVien){
+		return this.ngayNhapVien = ngayNhapVien;
+	}
+
+	public String getRaNhapVien(){
+		return ngayRaVien;
+	}
+	public void date setNgayRaVien( date ngayRaVien){
+		return this.ngayRaVien = ngayRaVien;
+	}
+
+	public double getTienThanhToan(){
+		return tienThanhToan;
+	}
+	public void double setTienThanhToan(double tienThanhToan){
+		return this.tienThanhToan= tienThanhToan;
+	}
+}

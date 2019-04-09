@@ -1,0 +1,340 @@
+//conNguoi
+package QuanLyHoSo;
+public class ConNguoi{
+	private String Ten;
+	private int Tuoi;
+	private String GioiTinh;
+	private int CMND;
+
+	public ConNguoi(String Ten,int Tuoi,String GioiTinh,int CMND){
+		this.Ten = Ten;
+		this.Tuon = Tuoi;
+		This.GioiTinh = GioiTinh;
+		This.CMND = CMND;
+	}
+	public String getTen(){
+		return Ten = Ten;
+	}
+	public void setTen(String Ten){
+		This.Ten = Ten;
+	}
+	public String getTuoi(){
+		return Tuoi = Tuoi;
+	}
+	public void setTuoi(int Tuoi){
+		This.Tuoi = Tuoi;
+	}
+	public String getGioiTinh(){
+		return GioiTinh = GioiTinh;
+	}
+	public void setGioiTinh(String GioiTinh){
+		This.GioiTinh = GioiTinh;
+	}
+	public String getCMND(){
+		return Ten = Ten;
+	}
+	public void setCMND(int CMND){
+		This.CMND = CMND;
+	}
+	
+	public void xuat(){
+	System.out.println("nh?p Ten" + Ten);
+	System.out.println("nh?p Ten" + Tuoi);
+	System.out.println("nh?p Ten" + GioiTinh);
+	System.out.println("nh?p Ten" + CMND);
+
+	}
+}
+//Benh nhan
+package QuanLyHoSo;
+public class BenhNhan extends ConNguoi (){
+	private String IdBenhNhan;
+	private String Benh;
+	private String PhuongPhapChuaBenh;
+	private String NgayNhapVien;
+	private String NgayRaVien;
+	private double TienThanhToan;
+
+	public BenhNhan(String Ten,int Tuoi,String GioiTinh,int CMND,String MaBenhNhan,String Benh,String PhuongPhapChuaBenh,String NgayNhapVien,String NgayRaVien,double TienThanhToan) {
+		this.super(Ten,Tuoi,GioiTinh,CMND);
+		this IdBenhNhan = IdBenhNhan;
+		this Benh = Benh;
+		this PhuongPhapChuaBenh = PhuongPhapChuaBenh;
+		this NgayNhapVien = NgayNhapVien;
+		this NgayRaVien = NgayRaVien;
+		this TienThanhToan = TienThanhToan;
+	}
+	@overide
+	public void xuat(){
+	super.xuat();
+	System.out.println("ma benh nhan: " + IdBenhNhan );
+	System.out.println("Benh: " + Benh );
+	System.out.println("Phuong Phap Chua Benh : " + PhuongPhapChuaBenh);
+	System.out.println("Ngay nhap vien : " + NgayNhapVien);
+	Systen.out.println("ngay ra vien : " + NgayRaVien);
+	Systen.out.println("Thanh Toan : " + TienThanhToan);
+	}
+}
+//Bác Sy
+package QuanLyHoSo;
+public class BacSy (){
+	private String IdBacSy;
+	private String Khoa;
+	private String NgayVaoLam;
+	private double Luong;
+	private double PhuCap;
+	
+	public BacSy(String Ten,int Tuoi,String GioiTinh,int CMND,String IdBacSy,String Khoa,String NgayVaoLam,double Luong,double PhuCap){
+	this.super(Ten,Tuoi,GioiTinh,CMND);
+		this IdBacSy = IdBacSy;
+		this Khoa = Khoa;
+		this NgayVaoLam = NgayVaoLam;
+		this Luong = Luong;
+		this PhuCap = PhuCap;
+	}
+	@overide
+	public void xuat(){
+	Super.xuat();
+	System.out.println("Id Bac Sy: " + IdBacSy );
+	System.out.println("Khoa: " + Khoa);
+	System.out.println("Ngay vao lam: " + NgayVaoLam);
+	System.out.println("Luong : " + Luong);
+	System.out.println("Phu câp : " + PhuCap);
+	}	
+}
+//Quan l? H? Sõ
+package QuanLyHoSo;
+
+import java.util.Scanner;
+import java.uti.ArrayList;
+
+public class QLHoSo(){
+	private ArrayList<ConNguoi> listConNguoi = new ArrayList<>();
+	Scanner sc = new Scanner(System.in);
+	
+	public void addConNguoi(ConNguoi conNguoi){
+	listConNguoi.add(conNguoi);
+	}
+
+	public void quanLyHoSoBenhNhan(){
+	BenhNhan bn = new BenhNhan();
+
+	System.out.println("nh?p tên");
+	Ten = sc.nextLine();
+	System.out.println("nh?p tu?i");
+	Tuoi = Integer.parseInt(sc.nextLine());
+	System.out.println("nh?p Gi?i Tính: ");
+	GioiTinh = sc.nextLine();
+	System.out.println("nh?p CMND: ");
+	CMND = Integer.parseInt(sc.nextLine());
+	System.out.println("nh?p M? b?nh nhân: ");
+	IdBenhNhan = sc.nextLine();
+	System.out.println("nh?p Benh: ");
+	Benh = sc.nextLine();
+	System.out.println("nh?p Phýõng pháp ch?a b?nh");
+	PhuongPhapChuaBenh = sc.nextLine();
+	System.out.println("ngày nh?p vi?n: ");
+	NgayNhapVien= sc.nextLine();
+	System.out.println("ngày Xuat vi?n: ");
+	NgayRaVien= sc.nextLine();		
+	System.out.println("Ti?n thanh toán:");
+	TienThanhToan = Double.praseDouble(scan.nextLine());
+
+		}
+	}
+//2.hi?n th? t?t c?
+	public void hienThi(){
+		for (int i = 0; i < listConNguoi.size()-1;i++){
+			listConNguoi.get(i).xuat();		
+		}
+	}
+//3.hi?n th? Thông tin b?nh nhân nh?p t? bàn phím
+	public void hienThiTimKiem(){
+	System.out.println("nh?p id c?n t?m: ")
+	int id =  Integer.parseInt(sc.nextLine());
+	for(ConNguoi conNguoi : listConNguoi){
+		if(listConNguoi.getIdBenhNhan().equals(Id)){
+			listConNguoi.xuat();
+			}
+		}
+	}
+//4.Tính t?ng ti?n c?a T?t c? b?nh nhân
+	pulic void AllTongTien(){
+		for(ConNguoi conNguoi : listConNguoi){
+			double sum += listConNguoi.getTienThanhToan;
+			sum.xuat();
+		}
+	}
+}
+//5.T?m b?nh nhân có ti?n tr? nhi?u nh?t
+	public void tienBenhNhanNhieuNhat() {
+	Collections.sort(benhNhan, new Comparator<BenhNhan>(){
+	public int compare(BenhNhan bn1, BenhNhan bn2){
+		if( bn1.getTienThanhToan() < bn2.getTienThanhToan()){
+		return 1;	
+		} else {
+			if(bn1.getTienThanhToan() == bn2.getTienThanhToan()){
+				return 0;
+			} 
+			else {
+				return -1;
+			}
+			}
+		}
+	});
+	System.out.println("Benh nhan co tien tra cao nhat la:");
+	benhNhan.get(benhNhan.size() - 1).toString();
+}
+////6.tim benh nhan co benh nhap tu ban phim
+	pulic void  TimBenhBN(){
+		System.out.println("nhap benh : ");
+		benh = sc.nextLine();
+	
+		for (ConNguoi conNguoi : listConNguoi){
+			if(ConNguoi.getBenh() == benh){
+			conNguoi.xuat();
+		}
+	
+//7. Thêm m?i nhân viên:
+
+public void themNhanVien(){
+	NhanVien nv = new NhanVien();
+	
+	System.out.pritln("Ten:");
+	String ten = scan.nextLine();
+	System.out.pritln("Tuoi:");
+	int tuoi = Integer.praseInt(scan.nextLine());
+	System.out.pritln("gioi tinh:");
+	String sex = scan.nextLine();
+	System.out.pritln("Cmnd:");
+	int cmnd= Integer.praseInt(scan.nextLine());
+	System.out.pritln("Ma bac sy:");
+	String ma = scan.nextLine();
+	System.out.pritln("Khoa:");
+	System.out.pritln("Ngay vao lam:");
+	String day = scan.nextLine();
+	System.out.pritln("Luong");
+	double tuoi = Double.praseDouble(scan.nextLine());
+	System.out.pritln("phu cap:");
+
+	nhanVien.add(nv);
+	
+}
+/// 8. Hi?n th? bác s?:
+
+public void hienThiBacSy(){
+	for(int i = 0; i < nhanVien.size(); i++){
+		System.out.pritln(nhanVien.get(i).toString());
+		}
+	}
+// 9. Hi?n th? bác s? v?i khoa týõng ?ng nh?p t? bàn phím:
+
+public void hienThiKhoa(){
+	System.out.pritln("Nh?p khoa:");
+	String khoa = scan.nextLine();
+	
+	for (int i = 0; i < nhanVien.size(); i++){
+		if(khoa == nhanVien.get(i).getKhoa()){
+			System.out.pritln(nhanVien.get(i).toString());
+			} else {
+				System.out.pritln("Khong co nhan vien nao");
+				}
+		}	
+}
+// 10. S?a ph? c?p bác s? v?i m? týõng ?ng bác s? nh?p t? bàn phím:
+
+public void suaPhuCap(){
+	System.out.pritln("Nhap ma:");
+	int ma = Integer.praseInt(scan.nextLine);
+	
+	for(int i = 0; i < nhanVien.size(); i++){
+		if(ma == nhanVien.get(i).getMaBacSy()){
+		nhanVien.get(i).toString();
+		System.out.pritln("Nhap phu cap thay doi:");
+		nhanVien.get(i).setPhuCap(scan.nextDouble());
+		}
+	}
+}
+// 11. Xóa bác s? v?i m? týõng ?ng
+public void xoaBacSy(){
+	
+		
+		System.out.println("Nhap ma can xoa:");
+		String x = scan.nextLine();
+		
+		for (int i = 0; i < List.size(); i++) {
+			if(List.get(i).getMaBacSy().equals(x)) {
+				List.remove(i);
+			}
+			System.out.println(List.get(i).toString());
+		}
+	
+}
+//run
+public class run{
+
+public void menu() {
+		while (true) {
+			System.out.println(""
+					+ "1. Nhap thong benh nhan \n"
+					+ "2. Xuat thong tin benh nhan \n"
+					+ "3. Hi?n th? h? sõ c?a b?nh nhân v?i m? b?nh nhân nh?p t? bàn phím \n"
+					+ "4. Tính t?ng các s? ti?n c?a t?t c? b?nh nhân \n"
+					+ "5. T?m b?nh nhân có ti?n tr? nhi?u nh?t \n"
+					+ "6. T?m các b?nh nhân có b?nh týõng ?ng nh?p t? bàn phím"
+					+ "7. Xuat thong tin danh sach sinh vien \n"
+					+ "8. Xuat sinh vien co hoc luc gioi \n"
+					+ "9. Sap xep danh sach sinh vien theo diem \n"
+					+ "10. Nhap danh sach sinh vien \n"
+					+ "11. thoat";
+					+ "11. thoat";
+			int n = Integer.parseInt(scan.nextLine());
+			switch ?? {
+				case 1:
+					quanLyHoSoBenhNhan();
+					break;
+				case 2:
+					hienThiThongTinBenhNhan();
+					break;
+				case 3:
+					hienThiBenhNhanVoiMaId();
+					break;
+				case 4:
+					tongTienCuaBenhNhan();
+					break;
+				case 5:
+					benhTuongUng();
+					break;
+				case 6:
+					tienBenhNhanNhieuNhat();
+					break;
+				case 7:
+					themNhanVien();
+					break;
+				case 8:
+					hienThiBacSy();
+					break;
+				case 9:
+					hienThiKhoa();
+					break;
+				case 10:
+					suaPhuCap();
+					break;
+				case 11:
+					xoaBacSy();
+					break;
+				
+				case 12:
+					System.err.println("THANKS");
+					System.exit(0);
+					break;
+		
+				default:
+					break;
+			}
+		}
+	}
+//main
+
+
+}
