@@ -35,5 +35,10 @@ public class ConNguoi{
 		setTuoi();
 		setID();
 	}
+	public ConNguoi(String ten, int tuoi, String ID){
+		this.ten=ten;
+		this.tuoi=tuoi;
+		this.ID=ID;
+	}
 }
 

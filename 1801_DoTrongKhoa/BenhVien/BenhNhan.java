@@ -30,7 +30,14 @@ public class BenhNhan extends ConNguoi{
 	public BenhNhan(){
 		super();
 		setNgayNhap();
+		setBenh();
 		setTienTT();
+	}
+	public BenhNhan(String ten, int tuoi, String ID, String ngayNhap, String benh, double tienTT){
+		super(ten, tuoi, ID);
+		this.ngayNhap=ngayNhap;
+		this.benh=benh;
+		this.tienTT=tienTT;
 	}
 	public void hienThiHoSoBN(){
 		System.out.println("Ten benh nhan: "+this.getTen());
@@ -39,5 +46,6 @@ public class BenhNhan extends ConNguoi{
 		System.out.println("Ngay nhap vien: "+this.getNgayNhap());
 		System.out.println("Bi benh: "+this.getBenh());
 		System.out.println("Tien vien phi: "+this.getTienTT());
+		System.out.println();
 	}
 }

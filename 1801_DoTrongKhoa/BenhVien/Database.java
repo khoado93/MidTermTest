@@ -25,6 +25,7 @@ public class Database{
 				break;
 			}    
 		}
+		System.out.println("Khong tim thay benh nhan");
 	}
 	
 	public double tongTien(){
@@ -35,7 +36,7 @@ public class Database{
 		return sum;
 	}
 	public BenhNhan bnTraNhieu(){
-		BenhNhan max=dsBenhNhan.get(0);
+		BenhNhan max=null;
 		int size=dsBenhNhan.size();
 		for (int i =0;i<size;i++){
 			for (int j=i+1;j<0;j++){
@@ -65,6 +66,7 @@ public class Database{
 				System.out.println();
 			}    
 		}
+		System.out.println("Khong tim thay bac si");
 	}
 	public BacSi hienThiBSID(String ID){
 		for (BacSi bacSi : dsBacSi){
@@ -74,6 +76,19 @@ public class Database{
 		}
 		return null;
 	}
-	
+	public Database(){
+		BenhNhan bn1=new BenhNhan("Khoa",23,"12B","12/3/2019","tieu duong",12000);
+		BenhNhan bn2=new BenhNhan("Viet",27,"169","13/02/1997","tim mach",7000);
+		BenhNhan bn3=new BenhNhan("Luong",19,"12C","12/3/2019","hen suyen",5500);
+		BacSi bs1=new BacSi("An",35,"ABC","Noi",25000,500);
+		BacSi bs2=new BacSi("Quan",25,"DEF","Ngoai",18000,800);
+		BacSi bs3=new BacSi("Dan",44,"GHK","Tim mach",37000,400);
+		addBN(bn1);
+		addBN(bn2);
+		addBN(bn3);
+		addBS(bs1);
+		addBS(bs2);
+		addBS(bs3);
+	}
 
 }

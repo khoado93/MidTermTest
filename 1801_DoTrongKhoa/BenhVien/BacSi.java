@@ -33,10 +33,16 @@ public class BacSi extends ConNguoi{
 		setLuong();
 		setPhuCap();
 	}
+	public BacSi(String ten, int tuoi, String ID, String khoa, double luong, double phuCap){
+		super(ten, tuoi, ID);
+		this.khoa=khoa;
+		this.luong=luong;
+		this.phuCap=phuCap;
+	}
 	public void hienThiHoSoBS(){
 		System.out.println("Ten bac si: "+this.getTen());
 		System.out.println("Tuoi benh nhan: "+this.getTuoi());
-		System.out.println("Ma benh nhan: "+this.getID());
+		System.out.println("Ma bac si: "+this.getID());
 		System.out.println("Khoa lam viec: "+this.getKhoa());
 		System.out.println("Tien luong: "+this.getLuong());
 		System.out.println("Tien phu cap: "+this.getPhuCap());

@@ -24,6 +24,7 @@ public class Main{
 		System.out.println("9/ Hien thi bac sy voi khoa tuong ung nhap tu ban phim");
 		System.out.println("10/ Sua phu cap cho bac sy tuong ung voi ma bac sy nhap tu ban phim");
 		System.out.println("11/ Xoa bac sy voi ma tuong ung");
+		System.out.println("12/ Thoat chuong trinh");
 		while (true){
 			dsBacSi=database.getDSBS();
 			dsBenhNhan=database.getDSBN();
@@ -46,7 +47,9 @@ public class Main{
 					System.out.println("Tong tien cac benh nhan: "+database.tongTien());
 					break;
 				case "5":
-					database.bnTraNhieu().hienThiHoSoBN();
+					if (database.bnTraNhieu()!=null){
+						database.bnTraNhieu().hienThiHoSoBN();} else{System.out.println("Khong co benh nhan nao trong database");}
+					
 					break;
 				case "6":
 					System.out.println("Nhap benh can tim: ");
@@ -72,6 +75,9 @@ public class Main{
 				case "11":
 					dsBacSi.remove(database.hienThiBSID(scanner.nextLine()));
 					break;
+				case "12":
+					System.out.println("Thoat chuong trinh...");
+					System.exit(0);
 				default:
 					System.out.println("Vui long chon hanh dong tu menu ");
 			}
