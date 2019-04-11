@@ -1,12 +1,9 @@
 package BenhVien;
-import java.util.*;
 
 public class ConNguoi{	
 	private String ten;
 	private int tuoi;
 	private String ID;
-	static Scanner scanner= new Scanner(System.in);
-	
 
 	public String getTen(){
 		return this.ten;
@@ -18,27 +15,22 @@ public class ConNguoi{
 		return this.ID;
 	}
 
-	public void setTen(){
-		System.out.println("Nhap ten");
-		this.ten=scanner.nextLine();
-	}
-	public void setTuoi(){
-		System.out.println("Nhap tuoi");
-		this.tuoi=Integer.parseInt(scanner.nextLine());
-	}
-	public void setID(){
-		System.out.println("Nhap ID");
-		this.ID=scanner.nextLine();
-	}
-	public ConNguoi(){
-		setTen();
-		setTuoi();
-		setID();
-	}
-	public ConNguoi(String ten, int tuoi, String ID){
+	public void setTen(String ten){
 		this.ten=ten;
+	}
+
+	public void setTuoi(int tuoi){
 		this.tuoi=tuoi;
+	}
+
+	public void setID(String ID){
 		this.ID=ID;
+	}
+
+	public ConNguoi(String ten, int tuoi, String ID){
+        setTen(ten);
+        setTuoi(tuoi);
+        setID(ID);
 	}
 }
 
