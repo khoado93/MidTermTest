@@ -1,0 +1,48 @@
+﻿package kiemTra;
+
+public class ConNguoi {
+	private String hoTen;
+	private double tuoi;
+	private String gioiTinh;
+	private String cmnd;
+	
+	public String getHoTen() {
+		return hoTen;
+	}
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
+	public double getTuoi() {
+		return tuoi;
+	}
+	public void setTuoi(double tuoi) {
+		this.tuoi = tuoi;
+	}
+	public String getGioiTinh() {
+		return gioiTinh;
+	}
+	public void setGioiTinh(String gioiTinh) {
+		this.gioiTinh = gioiTinh;
+	}
+	public String getCmnd() {
+		return cmnd;
+	}
+	public void setCmnd(String cmnd) {
+		this.cmnd = cmnd;
+	}
+	
+	public ConNguoi(String hoTen, double tuoi, String gioiTinh, String cmnd) {
+		this.hoTen = hoTen;
+		this.tuoi = tuoi;
+		this.gioiTinh = gioiTinh;
+		this.cmnd = cmnd;
+	}
+	
+	public void xuat() {
+		System.err.println("    ~~~~~~~~~~~~~~~");
+		System.err.println("Họ và tên: " + hoTen);
+		System.err.println("Tuổi: " + tuoi);
+		System.err.println("Giới tính: " + gioiTinh);
+		System.err.println("Chứng minh nhân dân: " + cmnd);
+	}
+}

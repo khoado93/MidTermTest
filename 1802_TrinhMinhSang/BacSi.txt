@@ -1,0 +1,61 @@
+﻿package kiemTra;
+
+public class BacSi extends ConNguoi{
+	private String maBacSi;
+	private String khoa;
+	private String ngayVaoLam;
+	private double luong;
+	private double phuCap;
+	
+	public BacSi(String hoTen, double tuoi, String gioiTinh, String cmnd, String maBacSi, String khoa, String ngayVaoLam,
+			double luong, double phuCap) {
+		super(hoTen, tuoi, gioiTinh, cmnd);
+		this.maBacSi = maBacSi;
+		this.khoa = khoa;
+		this.ngayVaoLam = ngayVaoLam;
+		this.luong = luong;
+		this.phuCap = phuCap;
+	}
+	
+	public String getMaBacSi() {
+		return maBacSi;
+	}
+	public void setMaBacSi(String maBacSi) {
+		this.maBacSi = maBacSi;
+	}
+	public String getKhoa() {
+		return khoa;
+	}
+	public void setKhoa(String khoa) {
+		this.khoa = khoa;
+	}
+	public String getNgayVaoLam() {
+		return ngayVaoLam;
+	}
+	public void setNgayVaoLam(String ngayVaoLam) {
+		this.ngayVaoLam = ngayVaoLam;
+	}
+	public double getLuong() {
+		return luong;
+	}
+	public void setLuong(double luong) {
+		this.luong = luong;
+	}
+	public double getPhuCap() {
+		return phuCap;
+	}
+	public void setPhuCap(double phuCap) {
+		this.phuCap = phuCap;
+	}	
+	
+	@Override
+	public void xuat() {
+		super.xuat();
+		System.err.println("Mã bác sĩ: " + maBacSi);
+		System.err.println("Khoa làm việc: " + khoa);
+		System.err.println("Ngày bắt đầu vào làm: " + ngayVaoLam);
+		System.err.println("Lương: " + luong);
+		System.err.println("Phụ cấp: " + phuCap);
+		System.err.println("    ~~~~~~~~~~~~~~~");
+	}
+}

@@ -1,0 +1,275 @@
+﻿package kiemTra;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MyClass {
+	private ArrayList<BenhNhan> benhNhan;
+	private ArrayList<BacSi> bacSi;
+	private Scanner scanSo;
+	private Scanner scanChu;
+	
+	public MyClass() {
+		benhNhan = new ArrayList<>();
+		bacSi = new ArrayList<>();
+		scanSo = new Scanner(System.in);
+		scanChu = new Scanner(System.in);
+	}
+	
+	// 1. Thêm mới hồ sơ bệnh nhân
+		public void addBenhNhan() {
+			BenhNhan bn = new BenhNhan();
+			System.out.print("Nhập họ tên bệnh nhân: ");
+			bn.setHoTen(scanChu.nextLine());
+			System.out.print("Nhập tuổi của bệnh nhân: ");
+			bn.setTuoi(scanSo.nextInt());
+			System.out.print("Nhập giới tính của bệnh nhân: ");
+			bn.setGioiTinh(scanChu.nextLine());
+			System.out.print("Nhập cmnd bệnh nhân: ");
+			bn.setCmnd(scanChu.nextLine());
+			System.out.print("Nhập mã bệnh nhân: ");
+			bn.setMaBenhNhan(scanChu.nextLine());
+			System.out.print("Nhập bệnh của bệnh nhân: ");
+			bn.setBenh(scanChu.nextLine());
+			System.out.print("Phương pháp điều trị: ");
+			bn.setPhuongPhapDieuTri(scanChu.nextLine());
+			System.out.print("Ngày nhập viện: ");
+			bn.setNgayNhapVien(scanChu.nextLine());
+			System.out.print("Ngày ra viện: ");
+			bn.setNgayRaVien(scanChu.nextLine());
+			System.out.print("Nhập tiền viện phí: ");
+			bn.setTienThanhToan(scanSo.nextDouble());
+			benhNhan.add(bn);
+		}
+		
+	// 2. Hiển thị thông tin tất cả bệnh nhân
+		public void showPatientAll() {
+			if (benhNhan.size() == 0) {
+				System.err.println(" ===>Danh sách trống!!!");
+			} else {
+				for (BenhNhan bn : benhNhan) {
+					bn.xuat();
+				}
+			}
+		}
+	
+	// 3. Hiển thị hồ sơ của bệnh nhân với mã bệnh nhân nhập từ bàn phím
+		public void hienThiHoSoBenhNhan() {
+			System.err.print(" ===>Nhập mã bênh nhân: ");
+			String nhap = scanChu.nextLine();
+			if (benhNhan.size() == 0) {
+				System.err.println(" ===>Danh sách trống!!!");
+			} else {
+				for (BenhNhan bn : benhNhan) {
+					if (bn.getMaBenhNhan().equals(nhap)) {
+						bn.xuat();
+					}					
+				}
+			}	
+		}
+
+	// 4. Tính tổng các số tiền của tất cả bệnh nhân
+		public void sumPatientMoney() {
+			if (benhNhan.size() == 0) {
+				System.err.println(" ===>Danh sách trống!!!");
+			} else {
+				double sum = 0;
+				for (BenhNhan bn : benhNhan) {
+					sum = sum + bn.getTienThanhToan();
+				}
+				System.err.println("--->Tổng tiền của tất cả bệnh nhân = " + sum);
+			}		
+		}
+	
+	// 5. Tìm bệnh nhân có tiền trả nhiều nhất
+		public void timBenhNhanCoTienTraNhieuNhat() {
+			double maxMoney = 0;
+			for (BenhNhan bn : benhNhan) {
+				if (bn.getTienThanhToan() > maxMoney) {
+					maxMoney = bn.getTienThanhToan();
+				}
+			}
+			System.err.println("--->Bệnh nhân có viện phí cao nhất:");
+			for (BenhNhan bn : benhNhan) {
+				if(bn.getTienThanhToan() == maxMoney) {
+					bn.xuat();
+				}
+			}
+		}
+	
+	// 6. Tìm các bệnh nhân có bệnh tương ứng nhập từ bàn phím
+		public void timBenhNhan() {
+			System.err.print(" ===>Nhập bệnh của bênh nhân cần tìm: ");
+			String nhap = scanChu.nextLine();
+			if (benhNhan.size() == 0) {
+				System.err.println(" ===>Danh sách trống!!!");
+			} else {
+				for (BenhNhan bn : benhNhan) {
+					if (bn.getBenh().equals(nhap)) {
+						bn.xuat();
+					}					
+				}
+			}	
+		}
+		
+	// 	7. Thêm mới hồ sơ bác sỹ
+		public void addBacSi() {
+			BacSi bs = new BacSi();
+			System.out.print("Nhập họ tên bác sĩ: ");
+			bs.setHoTen(scanChu.nextLine());
+			System.out.print("Nhập tuổi của bác sĩ: ");
+			bs.setTuoi(scanSo.nextInt());
+			System.out.print("Nhập giới tính của bác sĩ: ");
+			bs.setGioiTinh(scanChu.nextLine());
+			System.out.print("Nhập cmnd bác sĩ: ");
+			bs.setCmnd(scanChu.nextLine());
+			System.out.print("Nhập mã bác sĩ: ");
+			bs.setMaBacSi(scanChu.nextLine());
+			System.out.print("Nhập khoa làm việc: ");
+			bs.setKhoa(scanChu.nextLine());
+			System.out.print("Ngày bắt đầu vào làm: ");
+			bs.setNgayVaoLam(scanChu.nextLine());
+			System.out.print("Lương: ");
+			bs.setLuong(scanSo.nextDouble());
+			System.out.print("Phụ cấp: ");
+			bs.setPhuCap(scanSo.nextDouble());
+			bacSi.add(bs);
+		}
+		
+	//	8. Hiển thị tất cả bác sỹ
+		public void showDoctorAll() {
+			if (bacSi.size() == 0) {
+				System.err.println(" ===>Danh sách trống!!!");
+			} else {
+				for (BacSi bs : bacSi) {
+					bs.xuat();
+				}
+			}
+		}
+		
+	// 9. Hiển thị bác sỹ với khoa tương ứng nhập từ bàn phím
+		public void timKhoaLam() {
+			System.err.print(" ===>Nhập khoa cần tìm: ");
+			String nhap = scanChu.nextLine();
+			if (bacSi.size() == 0) {
+				System.err.println(" ===>Danh sách trống!!!");
+			} else {
+				for (BacSi bs : bacSi) {
+					if (bs.getKhoa().equals(nhap)) {
+						bs.xuat();
+					}					
+				}
+			}	
+		}
+		
+	// 10. Sửa phụ cấp cho bác sỹ tương ứng với mã bác sỹ nhập từ bàn phím
+		public void editDoctor() {
+			System.err.print(" ===>Nhập mã cần tìm: ");
+			String maCanTim = scanChu.nextLine();
+			if (bacSi.size() == 0) {
+				System.err.println(" ===>Danh sách trống!!!");
+			} else {
+				for (BacSi bs : bacSi) {
+					if (bs.getMaBacSi().equals(maCanTim)) {
+						bs.xuat();
+						System.err.print(" ===>Nhập phụ cấp mới: ");
+						bs.setPhuCap(scanSo.nextDouble());
+					}					
+				}
+			}	
+		}
+		
+	// 11. Xóa bác sỹ với mã tương ứng
+		public void deleteDoctor() {
+			System.err.print(" ===>Nhập mã cần xóa: ");
+			String maCanTim = scanChu.nextLine();
+			if (bacSi.size() == 0) {
+				System.err.println(" ===>Danh sách trống!!!");
+			} else {
+				for (int i = 0; i < bacSi.size(); i++) {
+					if (bacSi.get(i).getMaBacSi().equals(maCanTim)) {
+						bacSi.remove(i);
+						System.err.println(" ===>Đã xóa hồ sơ bác sĩ có mã: " +maCanTim);
+					}
+				}
+			}	
+		}
+		
+	//In menu
+		public void menu() {
+			while (true) {
+				System.err.println("--->Chọn chức năng [1_9]");
+				System.err.println("1. Thêm mới hồ sơ bệnh nhân");
+				System.err.println("2. Hiển thị thông tin tất cả bệnh nhân");
+				System.err.println("3. Hiển thị hồ sơ của bệnh nhân với mã bệnh nhân nhập từ bàn phím");
+				System.err.println("4. Tính tổng các số tiền của tất cả bệnh nhân");
+				System.err.println("5. Tìm bệnh nhân có tiền trả nhiều nhất");
+				System.err.println("6. Tìm các bệnh nhân có bệnh tương ứng nhập từ bàn phím");
+				System.err.println("7. Thêm mới hồ sơ bác sỹ");
+				System.err.println("8. Hiển thị tất cả bác sỹ");
+				System.err.println("9. Hiển thị bác sỹ với khoa tương ứng nhập từ bàn phím");
+				System.err.println("10. Sửa phụ cấp cho bác sỹ tương ứng với mã bác sỹ nhập từ bàn phím");
+				System.err.println("11. Xóa bác sỹ với mã tương ứng");
+				System.err.print("--->Mời chọn chức năng: ");
+				int chooseMenu = scanSo.nextInt();
+				switch (chooseMenu) {
+				case 1:
+					addBenhNhan();
+					break;
+				
+				case 2:
+					showPatientAll();
+					break;
+					
+				case 3:
+					hienThiHoSoBenhNhan();
+					break;
+					
+				case 4:
+					sumPatientMoney();
+					break;
+					
+				case 5:
+					timBenhNhanCoTienTraNhieuNhat();
+					break;
+					
+				case 6:
+					timBenhNhan();
+					break;
+					
+				case 7:
+					addBacSi();
+					break;
+					
+				case 8:
+					showDoctorAll();
+					break;
+					
+				case 9:
+					timKhoaLam();
+					break;
+					
+				case 10:
+					editDoctor();
+					break;
+					
+				case 11:
+					deleteDoctor();
+					break;
+					
+				case 12:
+					System.err.println("===>Tạm biệt!!!");
+					System.exit(0);
+					break;
+				default:
+					System.err.println(" ===>Không tồn tại tính năng này!");
+					break;
+				}
+			}
+		}
+	
+		public static void main(String[] args) {
+			MyClass quanLyConNguoi = new MyClass();
+			quanLyConNguoi.menu();
+		}
+}
